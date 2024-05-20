@@ -1,7 +1,7 @@
 // import styles from "./ContactList.module.css"
 import Contact from "../Contact/Contact.jsx"
 
-const ContactList = ({contacts}) => {
+const ContactList = ({contacts, onDelete}) => {
   return (
     <div>
     <ul>
@@ -10,6 +10,8 @@ const ContactList = ({contacts}) => {
           <Contact
             name={contact.name}
             number={contact.number}
+            onDelete={onDelete}
+            id={contact.id}
           />
         </li>
       ))}
