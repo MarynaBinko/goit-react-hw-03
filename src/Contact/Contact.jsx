@@ -1,10 +1,12 @@
 // import styles from "./Contact.module.css"
 
-const Contact = () => {
+const Contact = ({name, number}) => {
   return (
-    <div>
-      
-    </div>
+    <>
+      <h2>{name}</h2>
+      <p>{number}</p>
+      <button type="button">Delete</button>
+    </>
   )
 }
 
