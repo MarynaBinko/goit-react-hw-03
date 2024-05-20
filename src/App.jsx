@@ -6,12 +6,21 @@ import Contact from './Contact/Contact'
 import ContactForm from './ContactForm/ContactForm'
 import ContactList from './ContactList/ContactList'
 import SearchBox from './SearchBox/SearchBox'
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 function App() {
-  const [contacts, setContacts] = useState(contactsData);
+ const [contacts, setContacts] = useState(() => {
+  const storedContacts = localStorage.getItem("contacts");
+  return storedContacts ? JSON.parse(storedContacts) : contactsData;
+});
  const [filter, setFilter] = useState("");
  const filtratedContacts = contacts.filter(contact=>contact.name.toLowerCase().includes(filter.toLowerCase()))
+ 
+
+ useEffect(() => {
+  localStorage.setItem("contacts", JSON.stringify(contacts));
+}, [contacts]);
+
 
  const handleAddContact = (newContact) => {
   setContacts([...contacts, newContact]);
