@@ -3,6 +3,10 @@ import { IoMdContact } from "react-icons/io";
 import { FaPhone } from "react-icons/fa";
 
 const Contact = ({name, number, id, onDelete}) => {
+  if (!name || !number) {
+    return null; 
+  }
+  
   return (
     <div className={styles.item}>
       <div className={styles.row}>
