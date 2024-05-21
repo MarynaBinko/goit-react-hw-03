@@ -1,10 +1,10 @@
-// import styles from "./ContactList.module.css"
+import styles from "./ContactList.module.css"
 import Contact from "../Contact/Contact.jsx"
 
 const ContactList = ({contacts, onDelete}) => {
   return (
     <div>
-    <ul>
+    <ul className={styles.list}>
       {contacts.map((contact) => (
         <li key={contact.id}>
           <Contact
