@@ -1,5 +1,3 @@
-
-
 import contactsData from "./contacts.json"
 import './App.css'
 import Contact from './Contact/Contact'
@@ -9,10 +7,11 @@ import SearchBox from './SearchBox/SearchBox'
 import { useState, useEffect } from "react"
 
 function App() {
- const [contacts, setContacts] = useState(() => {
+  const [contacts, setContacts] = useState(() => {
   const storedContacts = localStorage.getItem("contacts");
   return storedContacts ? JSON.parse(storedContacts) : contactsData;
 });
+
  const [filter, setFilter] = useState("");
  const filtratedContacts = contacts.filter(contact=>contact.name.toLowerCase().includes(filter.toLowerCase()))
  

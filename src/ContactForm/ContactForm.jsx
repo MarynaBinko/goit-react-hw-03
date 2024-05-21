@@ -1,4 +1,4 @@
-// import styles from "./ContactForm.module.css"
+import styles from "./ContactForm.module.css"
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { nanoid } from 'nanoid'
 import * as Yup from "yup";
@@ -37,26 +37,26 @@ const ContactForm = ({onAddContact}) => {
 
   return (
     <div>
-      <Formik
+      <Formik 
       initialValues={initialValues}
       onSubmit={handleSubmit}
       validationSchema={FeedbackSchema}
     >
-      <Form>
+      <Form className={styles.form}>
         <div>
-          <label htmlFor={nameFieldId}>Name</label>
-          <Field type="text" name="name" id={nameFieldId} />
+          <label htmlFor={nameFieldId} className={styles.label}>Name</label>
+          <Field type="text" name="name" id={nameFieldId} className={styles.field} />
           <ErrorMessage name="name" component="span" />
         </div>
 
         <div>
-          <label htmlFor={numberFieldId}>Number</label>
-          <Field type="text" name="number" id={numberFieldId} />
+          <label htmlFor={numberFieldId} className={styles.label}>Number</label>
+          <Field type="text" name="number" id={numberFieldId} className={styles.field}/>
           <ErrorMessage name="number" component="span" />
         </div>
        
 
-        <button type="submit">Add contact</button>
+        <button type="submit" className={styles.btn}>Add contact</button>
       </Form>
     </Formik>
 
